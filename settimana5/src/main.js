@@ -2,7 +2,31 @@ import "./style.css"
 
 /* ================= 1. STATO ================= */
 const CHIAVE = "todo-tasks"
+const CHIAVE_NOME = "todo-nome"
+const box = document.querySelector("#benvenuto")
 
+function renderBenvenuto() {
+  const nome = localStorage.getItem(CHIAVE_NOME)
+
+  if (nome) {
+    box.innerHTML = `<p>Bentornato, ${nome}</p>`
+    return
+  }
+
+  box.innerHTML = `
+    <input type="text" id="campo-nome" placeholder="Come ti chiami?">
+    <button id="salva-nome">Salva</button>
+  `
+
+  document.querySelector("#salva-nome").addEventListener("click", () => {
+    const valore = document.querySelector("#campo-nome").value.trim()
+    if (valore === "") return
+    localStorage.setItem(CHIAVE_NOME, valore)
+    renderBenvenuto()          // ridisegna: ora mostra il saluto
+  })
+}
+
+renderBenvenuto()
 function caricaStato() {
   const testo = localStorage.getItem(CHIAVE)
   if (testo === null) return []
