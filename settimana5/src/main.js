@@ -1,6 +1,7 @@
 import "./style.css"
 
 /* ================= 1. STATO ================= */
+
 const CHIAVE = "todo-tasks"
 const CHIAVE_NOME = "todo-nome"
 const box = document.querySelector("#benvenuto")
@@ -25,6 +26,8 @@ function renderBenvenuto() {
     renderBenvenuto()          // ridisegna: ora mostra il saluto
   })
 }
+
+renderBenvenuto()
 
 renderBenvenuto()
 function caricaStato() {
