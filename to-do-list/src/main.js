@@ -28,8 +28,6 @@ function renderBenvenuto() {
 }
 
 renderBenvenuto()
-
-renderBenvenuto()
 function caricaStato() {
   const testo = localStorage.getItem(CHIAVE)
   if (testo === null) return []
